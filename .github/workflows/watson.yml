@@ -28,8 +28,14 @@ jobs:
       - name: clj-holmes (Clojure)
         uses: clj-holmes/clj-holmes-action@main
         with:
-          output-type: 'stdout'
+          output-type: 'json'
+          output-file: 'results.json'
           fail-on-result: 'true'
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          path: results.json
           
       - name: Dependency scan
         uses: clj-holmes/clj-watson-action@main
@@ -39,8 +45,8 @@ jobs:
           database-strategy: github-advisory
           aliases: clojure-lsp,test 
           deps-edn-path: 'deps.edn'
-          output-type: 'stdout-simple'
+          output-type: 'stdout'
           suggest-fix: 'true'
-          fail-on-result: 'true'
+          fail-on-result: 'false'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
