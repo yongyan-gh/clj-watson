@@ -48,6 +48,9 @@ jobs:
           clojure -M:clojure-lsp format --dry
           clojure -M:clojure-lsp clean-ns --dry
           clojure -M:clojure-lsp diagnostics
+      
+      - name: clj-watson check
+        run: clojure -M:clj-watson scan scan -p deps.edn
 
   security:
 
