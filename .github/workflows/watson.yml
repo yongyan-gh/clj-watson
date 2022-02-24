@@ -45,7 +45,7 @@ jobs:
           database-strategy: github-advisory
           aliases: clojure-lsp,test 
           deps-edn-path: 'deps.edn'
-          output-type: 'stdout'
+          output-type: 'json'
           suggest-fix: 'true'
           fail-on-result: 'false'
         env:
