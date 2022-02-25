@@ -30,7 +30,7 @@ jobs:
         with:
           output-type: 'sarif'
           output-file: 'results.sarif'
-          fail-on-result: 'true'
+          fail-on-result: 'false'
           
       - name: Upload artifact
         uses: actions/upload-artifact@v2
